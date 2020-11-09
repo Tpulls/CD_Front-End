@@ -1,0 +1,195 @@
+﻿
+@{
+    ViewBag.Title = "Help";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        .collapsible {
+            background-color: #777;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+
+            .active, .collapsible:hover {
+                background-color: #555;
+            }
+
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+    </style>
+    <title>Help Page</title>
+</head>
+<body>
+    <div>
+        <h2>Page Index</h2>
+        <hr />
+    </div>
+
+    <p>Frequently Asked Questions(FAQ)</p>
+    <button type="button" class="collapsible">FAQ</button>
+    <div class="content">
+        <p>
+            <dl>
+                <dt>How would I inspect the CD's that are on record?</dt>
+
+                <dd>Move your move to the upper section of the page and find the title navigation bar. Locate the CD tag and click to access the page.</dd>
+                <dd>Once you have access to the CD page you will be viewing a table of information relevant to each CD record.</dd>
+
+            </dl>
+        </p>
+    </div>
+    <hr />
+
+    <p>CD Page Guidance</p>
+    <button type="button" class="collapsible">CD Page</button>
+    <div class="content">
+        <p>
+            <dl>
+                <dt>How do I add a new CD record?</dt>
+
+                <dd>Click the 'Create new' link, enter the information and click 'create'. The record will then be added to the index page table data.  </dd>
+                </br>
+
+                <dt>How do I edit a CD record?</dt>
+
+                <dd>click 'Edit' on the data set that you would like to edit, make changes as requied and click save. </dd>
+                </br>
+
+                <dt>How do I delete a CD record?</dt>
+
+                <dd>click 'delete' on the data set that you would like to delete, review the selection and click delete. </dd>
+                </br>
+
+                <dt>How do I view the CD details?</dt>
+
+                <dd>click 'Details' on the data set that you would like to view and the page will redirect to the details page to view the information. </dd>
+                </br>
+
+            </dl>
+        </p>
+    </div>
+    <hr />
+
+    <p>Staff Page Guidance</p>
+    <button type="button" class="collapsible">CD Page</button>
+    <div class="content">
+        <p>
+            <dl>
+                <dt>How do I add a new staff record?</dt>
+
+                <dd>Click the 'Create new' link, enter the information and click 'create'. The record will then be added to the index page table data.  </dd>
+                </br>
+
+                <dt>How do I edit a staff record?</dt>
+
+                <dd>click 'Edit' on the data set that you would like to edit, make changes as requied and click save. </dd>
+                </br>
+
+                <dt>How do I delete a staff record?</dt>
+
+                <dd>click 'delete' on the data set that you would like to delete, review the selection and click delete. </dd>
+                </br>
+
+                <dt>How do I view the staff details?</dt>
+
+                <dd>click 'Details' on the data set that you would like to view and the page will redirect to the details page to view the information. </dd>
+                </br>
+
+            </dl>
+        </p>
+    </div>
+
+    <hr />
+
+
+    <p>Rentals Page Guidance</p>
+    <button type="button" class="collapsible">CD Page</button>
+    <div class="content">
+        <p>
+            <dl>
+                <dt>How do I add a new Rental record?</dt>
+
+                <dd>Click the 'Create new' link, enter the information and click 'create'. The record will then be added to the index page table data.  </dd>
+                </br>
+
+                <dt>How do I edit a Rental record?</dt>
+
+                <dd>click 'Edit' on the data set that you would like to edit, make changes as requied and click save. </dd>
+                </br>
+
+                <dt>How do I delete a Rental record?</dt>
+
+                <dd>click 'delete' on the data set that you would like to delete, review the selection and click delete. </dd>
+                </br>
+
+                <dt>How do I view the Rental details?</dt>
+
+                <dd>click 'Details' on the data set that you would like to view and the page will redirect to the details page to view the information. </dd>
+                </br>
+
+            </dl>
+        </p>
+    </div>
+
+    <hr />
+
+    <p>Reports Page Guidance</p>
+    <button type="button" class="collapsible">CD Page</button>
+    <div class="content">
+        <p>
+            <dl>
+                <dt>How do I select which report to view?</dt>
+
+                <dd>Click on the 'Reports' tab in the top menu and select the appropriate report from the dropdown list. </dd>
+                </br>
+
+                <dt>How do I search for data in the report?</dt>
+
+                <dd>Enter the search criteria into the search field and click the Search button to generate the result. </dd>
+                </br>
+
+                <dt>How do I export the data?</dt>
+
+                <dd>Click the 'Export Data' button and a csv file will be downloaded to your local drive. </dd>
+                </br>
+
+            </dl>
+        </p>
+    </div>
+
+    <script>
+
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
+

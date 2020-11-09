@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CD_Front_End.Models.RentalCountReport>
+
+@{
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CD Rental Count Chart</title>
+</head>
+<body>
+    @{
+        string myTheme = @"
+<Chart BorderlineDashStyle=""Solid"" BorderlineWidth=""1"" BorderlineColor=""Black"" BackSecondaryColor=""LightGray""
+   BackColor=""LightGray"" BackGradientStyle=""TopBottom"" Palette=""BrightPastel"" AntiAliasing=""All"" >
+   <ChartAreas >
+      <ChartArea Name=""Default"" _Template_=""All"" BackGradientStyle=""None"" BackColor=""Transparent""
+        BackSecondaryColor=""Black"" BorderColor=""64, 64, 64, 64"" BorderDashStyle=""Solid"" ShadowColor=""Transparent"" >
+
+         <AxisX Title=""CDs"" IsLabelAutoFit=""False"" >
+            <LabelStyle Angle = ""0"" Interval = ""1""  ForeColor=""Black"" Font=""Trebuchet MS, 10pt, style=Bold""/>
+         </AxisX>
+
+        <AxisY Title=""Number of Times Rented"" IsLabelAutoFit=""False"" >
+            <LabelStyle Angle = ""0"" Interval = ""1""  ForeColor=""Black"" Font=""Trebuchet MS, 10pt, style=Bold"" />
+         </AxisY>
+
+         <Area3DStyle Enable3D=""False"" Inclination=""60"" Rotation=""30""/>
+      </ChartArea>
+   </ChartAreas>
+</Chart>
+";
+        var chart = new Chart(width: 600, height: 600, theme: myTheme)
+        .AddTitle("Movie Rental Count")
+        .AddSeries("Default", chartType: "Bar",
+            xValue: Model, xField: "Title",
+            yValues: Model, yFields: "RentalCount")
+        .Write();
+    }
+
+
+</body>
+</html>

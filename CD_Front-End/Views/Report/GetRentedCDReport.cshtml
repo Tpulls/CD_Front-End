@@ -1,0 +1,59 @@
+﻿@model IEnumerable<CD_Front_End.ViewModels.RentedCDsViewModel>
+
+@{
+    ViewBag.Title = "GetRentedCDReport";
+}
+
+<h2>Rented CD Report</h2>
+
+@using (Html.BeginForm("GetRentedCDReport", "Report", FormMethod.Get, new { @style = "padding-bottom:20px;" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.Label("Search: ")
+    <input type="text" id="criteria" name="criteria" />
+    <input type="submit" value="Search" class="button_cont" />
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateRented)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateRented)
+            </td>
+        </tr>
+    }
+
+</table>
+
+@using (Html.BeginForm("ExportRentedCDData", "Report"))
+{
+    <button name="button" value="Export Data" style="width:128px; height:48px; font-weight:bold;" title="Export Data">
+        Export Data
+    </button>
+}

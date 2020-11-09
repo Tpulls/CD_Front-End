@@ -1,0 +1,46 @@
+﻿@model CD_Front_End.Models.RentalItem
+
+@{
+    ViewBag.Title = "Edit Rented CDs";
+}
+
+<h2>Edit Rental</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>RentalItem</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.RentalItemID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RentalID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RentalID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RentalID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.cdID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.cdID, Model.CDs, "- Please select a CD -",
+                   new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.cdID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to Rental(Edit)", "Edit", new { id = Model.RentalID })
+</div>

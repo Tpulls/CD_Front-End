@@ -1,0 +1,43 @@
+﻿@model IEnumerable<CD_Front_End.Models.RentalCountReport>
+
+@{
+    ViewBag.Title = "GetRentalCountData";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CD Rental Count Report</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentalCount)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RentalCount)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    <h2>Chart</h2>
+    <img src="@Url.Action("DrawCDRentalCountChart")" />
+</div>
+
+<div style="padding-top:20px;">
+    @Html.ActionLink("Back to CD List", "Index", "CD")
+</div>
